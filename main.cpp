@@ -25,9 +25,29 @@ int ValidateSymLink(std::string path)
     return 0;
 }
 
+std::string GetCanonicalPath(std::string path)
+{
+    char buf[PATH_MAX];
+    char *res = realpath(path.c_str(), buf);
+
+    if (res)
+    {
+        return std::string(buf);
+    }
+
+    return "";
+}
+
 int CreateSymLink(std::string source, std::string destination)
 {
-    symlink(source.c_str(), destination.c_str());
+    auto canonical = GetCanonicalPath(source);
+
+    if (canonical == "")
+    {
+        return 0;
+    }
+
+    symlink(canonical.c_str(), destination.c_str());
 
     return 1;
 }
@@ -195,6 +215,8 @@ int main(int argc, char *argv[])
         std::cout << "Path is in windows format." << std::endl;
         return -1;
     }
+
+    std::cout << GetCanonicalPath(path) << std::endl;
 
     if (option == "-c" || option == "-C")
     {

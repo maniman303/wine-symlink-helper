@@ -18,7 +18,7 @@ CEXTRA                =
 CXXEXTRA              =
 RCEXTRA               =
 DEFINES               =
-INCLUDE_PATH          =
+INCLUDE_PATH          = 
 DLL_PATH              =
 DLL_IMPORTS           =
 LIBRARY_PATH          =
@@ -60,7 +60,7 @@ AR = ar
 
 ### Flags
 
-CXXFLAGS=-std=c++17
+CXXFLAGS=-std=c++20
 
 ### Generic targets
 
