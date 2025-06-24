@@ -60,7 +60,7 @@ AR = ar
 
 ### Flags
 
-CXXFLAGS=-std=c++20
+CXXFLAGS=-std=c++17 -m64
 
 ### Generic targets
 

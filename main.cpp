@@ -35,7 +35,7 @@ std::string GetCanonicalPath(std::string path)
         return std::string(buf);
     }
 
-    return "";
+    return path;
 }
 
 int CreateSymLink(std::string source, std::string destination)
@@ -215,8 +215,6 @@ int main(int argc, char *argv[])
         std::cout << "Path is in windows format." << std::endl;
         return -1;
     }
-
-    std::cout << GetCanonicalPath(path) << std::endl;
 
     if (option == "-c" || option == "-C")
     {
